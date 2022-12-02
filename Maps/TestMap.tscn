@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bljjq6erqlqhf"]
+
+[ext_resource type="Shader" path="res://Environment/Clouds/clouds.gdshader" id="1_jihnl"]
+[ext_resource type="CompressedTexture3D" uid="uid://dbfbysid168mx" path="res://Environment/Clouds/perlworlnoise.tga" id="2_s1p3l"]
+[ext_resource type="Texture2D" uid="uid://dfkye0uf4i6w1" path="res://Environment/Clouds/weather.bmp" id="3_hknpg"]
+[ext_resource type="CompressedTexture3D" uid="uid://c4dp6g6gouj2b" path="res://Environment/Clouds/worlnoise.bmp" id="4_5c7cw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjtlq"]
+shader = ExtResource("1_jihnl")
+shader_parameter/_density = 0.05
+shader_parameter/_time_offset = null
+shader_parameter/_time_scale = 1.0
+shader_parameter/cloud_coverage = 0.25
+shader_parameter/exposure = 0.1
+shader_parameter/ground_color = Color(1, 1, 1, 1)
+shader_parameter/mie = 0.005
+shader_parameter/mie_color = Color(0.631373, 0.768627, 0.921569, 1)
+shader_parameter/mie_eccentricity = 0.8
+shader_parameter/perlworlnoise = ExtResource("2_s1p3l")
+shader_parameter/rayleigh = 2.0
+shader_parameter/rayleigh_color = Color(0.258824, 0.411765, 0.580392, 1)
+shader_parameter/sun_disk_scale = 3.0
+shader_parameter/turbidity = 10.0
+shader_parameter/weathermap = ExtResource("3_hknpg")
+shader_parameter/worlnoise = ExtResource("4_5c7cw")
+
+[sub_resource type="Sky" id="Sky_6ac0f"]
+sky_material = SubResource("ShaderMaterial_cjtlq")
+
+[sub_resource type="Environment" id="Environment_nr6hd"]
+background_mode = 2
+sky = SubResource("Sky_6ac0f")
+ambient_light_source = 3
+ambient_light_color = Color(0.666667, 0.498039, 0.254902, 1)
+reflected_light_source = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nr6hd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.920519, 0.376683, 0.103704, 0.363611, -0.923081, 0.125333, 0.142938, -0.0776636, -0.98668, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.994522, -0.0383099, -0.0972551, 8.13397e-08, 0.930418, -0.366501, 0.104529, 0.364493, 0.925321, 0, 0, 0)
