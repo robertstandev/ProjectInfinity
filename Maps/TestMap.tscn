@@ -53,7 +53,7 @@ transform = Transform3D(0.920519, 0.376683, 0.103704, 0.363611, -0.923081, 0.125
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.994522, -0.0383099, -0.0972551, 8.13397e-08, 0.930418, -0.366501, 0.104529, 0.364493, 0.925321, 0, 0, 0)
+transform = Transform3D(0.994522, -0.0383099, -0.0972551, 8.13397e-08, 0.930418, -0.366501, 0.104529, 0.364493, 0.925321, 0, 1, 0)
 script = ExtResource("5_uoy3a")
 
 [node name="TempGround" type="MeshInstance3D" parent="."]
