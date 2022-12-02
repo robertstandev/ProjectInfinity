@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bljjq6erqlqhf"]
+[gd_scene load_steps=9 format=3 uid="uid://bljjq6erqlqhf"]
 
 [ext_resource type="Shader" path="res://Environment/Clouds/clouds.gdshader" id="1_jihnl"]
 [ext_resource type="CompressedTexture3D" uid="uid://dbfbysid168mx" path="res://Environment/Clouds/perlworlnoise.tga" id="2_s1p3l"]
@@ -39,6 +39,9 @@ ssil_enabled = true
 sdfgi_enabled = true
 glow_enabled = true
 
+[sub_resource type="QuadMesh" id="QuadMesh_idhfi"]
+size = Vector2(100, 100)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -50,3 +53,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.994522, -0.0383099, -0.0972551, 8.13397e-08, 0.930418, -0.366501, 0.104529, 0.364493, 0.925321, 0, 0, 0)
+
+[node name="TempGround" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_idhfi")
