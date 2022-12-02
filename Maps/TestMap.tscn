@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bljjq6erqlqhf"]
+[gd_scene load_steps=10 format=3 uid="uid://bljjq6erqlqhf"]
 
 [ext_resource type="Shader" path="res://Environment/Clouds/clouds.gdshader" id="1_jihnl"]
 [ext_resource type="CompressedTexture3D" uid="uid://dbfbysid168mx" path="res://Environment/Clouds/perlworlnoise.tga" id="2_s1p3l"]
 [ext_resource type="Texture2D" uid="uid://dfkye0uf4i6w1" path="res://Environment/Clouds/weather.bmp" id="3_hknpg"]
 [ext_resource type="CompressedTexture3D" uid="uid://c4dp6g6gouj2b" path="res://Environment/Clouds/worlnoise.bmp" id="4_5c7cw"]
+[ext_resource type="Script" path="res://Scripts/Player/free_look_camera.gd" id="5_uoy3a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cjtlq"]
 shader = ExtResource("1_jihnl")
@@ -53,6 +54,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.994522, -0.0383099, -0.0972551, 8.13397e-08, 0.930418, -0.366501, 0.104529, 0.364493, 0.925321, 0, 0, 0)
+script = ExtResource("5_uoy3a")
 
 [node name="TempGround" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0)
