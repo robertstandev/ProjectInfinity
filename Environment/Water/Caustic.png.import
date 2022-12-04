@@ -1,0 +1,25 @@
+[remap]
+
+importer="cubemap_texture"
+type="CompressedCubemap"
+uid="uid://brt08vy0slgp"
+path="res://.godot/imported/Caustic.png-6acc32ca21fb66e27456d780f4eeefeb.ccube"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Environment/Water/Caustic.png"
+dest_files=["res://.godot/imported/Caustic.png-6acc32ca21fb66e27456d780f4eeefeb.ccube"]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/bptc_ldr=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/arrangement=1

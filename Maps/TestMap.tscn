@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bljjq6erqlqhf"]
+[gd_scene load_steps=15 format=3 uid="uid://bljjq6erqlqhf"]
 
 [ext_resource type="Shader" path="res://Environment/Clouds/clouds.gdshader" id="1_jihnl"]
 [ext_resource type="CompressedTexture3D" uid="uid://dbfbysid168mx" path="res://Environment/Clouds/perlworlnoise.tga" id="2_s1p3l"]
 [ext_resource type="Texture2D" uid="uid://dfkye0uf4i6w1" path="res://Environment/Clouds/weather.bmp" id="3_hknpg"]
 [ext_resource type="CompressedTexture3D" uid="uid://c4dp6g6gouj2b" path="res://Environment/Clouds/worlnoise.bmp" id="4_5c7cw"]
 [ext_resource type="Script" path="res://Scripts/Player/free_look_camera.gd" id="5_uoy3a"]
+[ext_resource type="Shader" path="res://Environment/Water/Water.gdshader" id="6_esw0k"]
+[ext_resource type="Texture2D" uid="uid://enofy1kmil4w" path="res://Environment/Water/Water_N_B.png" id="9_8oqsk"]
+[ext_resource type="Texture2D" uid="uid://cttwro6jdvvm4" path="res://Environment/Water/Water_UV.png" id="10_k6qyg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cjtlq"]
 shader = ExtResource("1_jihnl")
@@ -43,6 +46,31 @@ glow_enabled = true
 [sub_resource type="QuadMesh" id="QuadMesh_idhfi"]
 size = Vector2(100, 100)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yw1w5"]
+render_priority = 0
+shader = ExtResource("6_esw0k")
+shader_parameter/beers_law = null
+shader_parameter/color_deep = Color(0.592157, 0.72549, 1, 1)
+shader_parameter/color_shallow = Color(0.635294, 0.788235, 0.92549, 1)
+shader_parameter/depth_offset = 0.0
+shader_parameter/normalmap_b_sampler = ExtResource("9_8oqsk")
+shader_parameter/refraction = 0.0
+shader_parameter/sampler_direction = Vector2(0.1, 0.1)
+shader_parameter/sampler_scale = Vector2(0.1, 0.1)
+shader_parameter/uv_sampler = ExtResource("10_k6qyg")
+shader_parameter/uv_sampler_scale = Vector2(0.5, 0.5)
+shader_parameter/uv_sampler_strength = 0.1
+shader_parameter/wave_a = Quaternion(1, 1, 0.35, 3)
+shader_parameter/wave_b = Quaternion(1, 0.6, 0.3, 1.55)
+shader_parameter/wave_c = Quaternion(1, 1.3, 0.25, 0.9)
+shader_parameter/wave_speed = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ha75t"]
+material = SubResource("ShaderMaterial_yw1w5")
+size = Vector2(128, 128)
+subdivide_width = 32
+subdivide_depth = 32
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -59,3 +87,7 @@ script = ExtResource("5_uoy3a")
 [node name="TempGround" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0)
 mesh = SubResource("QuadMesh_idhfi")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02977, 0)
+mesh = SubResource("PlaneMesh_ha75t")
